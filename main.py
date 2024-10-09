@@ -3,5 +3,6 @@ import json
 
 news = NewsFetcher
 data = news.get_fake_news()
+data = news.clean_json(data)
 
-print(len(data['data']))
+print(data['data'])
