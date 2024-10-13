@@ -1,4 +1,8 @@
-# News Processing Pipeline
+#Newspaper.AI
+ 
+News Processing Pipeline 
+Implementation - https://newspaper-ai-two.vercel.app/
+Frontend Implementation - https://github.com/Abhigyan126/Newspaper.ai-React
 
 This repository contains a Python-based pipeline that fetches news articles, processes them, and updates the results to a GitHub repository. The code uses classes like `NewsFetcher` and `GitHubRepoManager` to handle news fetching and GitHub repository updates, respectively.
 
