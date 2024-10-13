@@ -5,15 +5,20 @@ import html
 import requests
 from llm import LLM
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
+
 
 class NewsFetcher:
     @staticmethod
     def get_news():
         try:
+            load_dotenv()
+            apikey_for_news = os.getenv('apikey_for_news')
             conn = http.client.HTTPConnection('api.mediastack.com')
 
             params = urllib.parse.urlencode({
-                'access_key': 'api_key_ur',
+                'access_key': apikey_for_news,
                 'countries': 'in',
                 'categories': '-general,-sports',
                 'sort': 'published_desc',
@@ -26,7 +31,7 @@ class NewsFetcher:
 
             # Load the JSON response
             json_data = json.loads(data.decode('utf-8'))
-            return json_data
+            return json_data['data']
 
         except Exception as e:
             print(f"Error occurred: {e}")

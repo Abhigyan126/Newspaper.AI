@@ -1,9 +1,12 @@
 import json
 from getnews import NewsFetcher
+from update_github import GitHubRepoManager
 
 class NewsPipeline:
     def __init__(self):
         self.data = NewsFetcher.get_fake_news()
+        self.manager = GitHubRepoManager()
+
         self.results = []
 
     def process_news(self):
@@ -30,8 +33,7 @@ def main():
     pipeline.process_news()
     processed_news = pipeline.get_results()
 
-    for news in processed_news:
-        print(json.dumps(news, indent=4))
+    print(processed_news)
 
 if __name__ == "__main__":
     main()
